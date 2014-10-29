@@ -1,34 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ProjectBrief -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ProjectBrief %></h1>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @project_brief.user %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:department) %></dt>
+      <dd><pre class="prettyprint"><%= @project_brief.department %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:cost_center) %></dt>
+      <dd><pre class="prettyprint"><%= @project_brief.cost_center %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:budget_in_cents) %></dt>
+      <dd><pre class="prettyprint"><%= @project_brief.budget_in_cents %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:target_date) %></dt>
+      <dd><pre class="prettyprint"><%= @project_brief.target_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:participating_stores) %></dt>
+      <dd><pre class="prettyprint"><%= @project_brief.participating_stores %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Department:</strong>
-  <%= @project_brief.department %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              project_briefs_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_project_brief_path(@project_brief), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              project_brief_path(@project_brief),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Cost center:</strong>
-  <%= @project_brief.cost_center %>
-</p>
-
-<p>
-  <strong>Budget in cents:</strong>
-  <%= @project_brief.budget_in_cents %>
-</p>
-
-<p>
-  <strong>Target date:</strong>
-  <%= @project_brief.target_date %>
-</p>
-
-<p>
-  <strong>Participating stores:</strong>
-  <%= @project_brief.participating_stores %>
-</p>
-
-<%= link_to 'Edit', edit_project_brief_path(@project_brief) %> |
-<%= link_to 'Back', project_briefs_path %>

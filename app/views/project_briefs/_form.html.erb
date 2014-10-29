@@ -1,16 +1,40 @@
-<%= simple_form_for(@project_brief) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :department %>
-    <%= f.input :cost_center %>
-    <%= f.input :budget_in_cents %>
-    <%= f.input :target_date %>
-    <%= f.input :participating_stores %>
+<%= form_for @project_brief, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :department, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :department, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cost_center, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :cost_center, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :budget_in_cents, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :budget_in_cents, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :target_date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :target_date, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :participating_stores, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :participating_stores, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  project_briefs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
