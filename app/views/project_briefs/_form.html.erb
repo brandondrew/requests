@@ -1,0 +1,16 @@
+<%= simple_form_for(@project_brief) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :department %>
+    <%= f.input :cost_center %>
+    <%= f.input :budget_in_cents %>
+    <%= f.input :target_date %>
+    <%= f.input :participating_stores %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

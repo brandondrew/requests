@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @project_brief.user %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @project_brief.department %>
+</p>
+
+<p>
+  <strong>Cost center:</strong>
+  <%= @project_brief.cost_center %>
+</p>
+
+<p>
+  <strong>Budget in cents:</strong>
+  <%= @project_brief.budget_in_cents %>
+</p>
+
+<p>
+  <strong>Target date:</strong>
+  <%= @project_brief.target_date %>
+</p>
+
+<p>
+  <strong>Participating stores:</strong>
+  <%= @project_brief.participating_stores %>
+</p>
+
+<%= link_to 'Edit', edit_project_brief_path(@project_brief) %> |
+<%= link_to 'Back', project_briefs_path %>
