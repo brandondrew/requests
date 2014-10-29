@@ -29,6 +29,7 @@ class ProjectBriefsController < ApplicationController
   # POST /project_briefs.json
   def create
     @project_brief = ProjectBrief.new(project_brief_params)
+    @project_brief.user = current_user
 
     respond_to do |format|
       if @project_brief.save
